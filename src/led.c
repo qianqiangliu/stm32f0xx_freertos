@@ -25,7 +25,7 @@ void led_off(GPIO_TypeDef *port, uint16_t pin)
 
 void led_toggle(GPIO_TypeDef *port, uint16_t pin)
 {
-	if (port->IDR & pin)
+	if (port->ODR & pin)
 		port->BRR = pin;
 	else
 		port->BSRR = pin;
