@@ -12,7 +12,7 @@ static void led_task(void *args)
 
 	xPreviousWakeTime = xTaskGetTickCount();
 	for (;;) {
-		led_toggle(LED_PORT, LED_PIN);
+		led_toggle();
 		vTaskDelayUntil(&xPreviousWakeTime, 1000 / portTICK_PERIOD_MS);
 	}
 }

@@ -1,4 +1,11 @@
+#include "stm32f0xx_rcc.h"
+#include "stm32f0xx_gpio.h"
+
 #include "led.h"
+
+#define LED_RCC		RCC_AHBPeriph_GPIOC
+#define LED_PORT	GPIOC
+#define LED_PIN		GPIO_Pin_13
 
 void led_init(void)
 {
@@ -13,20 +20,20 @@ void led_init(void)
 	GPIO_Init(LED_PORT, &GPIO_InitStructure);
 }
 
-void led_on(GPIO_TypeDef *port, uint16_t pin)
+void led_on(void)
 {
-	port->BSRR = pin;
+	LED_PORT->BSRR = LED_PIN;
 }
 
-void led_off(GPIO_TypeDef *port, uint16_t pin)
+void led_off(void)
 {
-	port->BRR = pin;
+	LED_PORT->BRR = LED_PIN;
 }
 
-void led_toggle(GPIO_TypeDef *port, uint16_t pin)
+void led_toggle(void)
 {
-	if (port->ODR & pin)
-		port->BRR = pin;
+	if (LED_PORT->ODR & LED_PIN)
+		LED_PORT->BRR = LED_PIN;
 	else
-		port->BSRR = pin;
+		LED_PORT->BSRR = LED_PIN;
 }
