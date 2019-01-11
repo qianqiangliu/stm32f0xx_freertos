@@ -47,14 +47,14 @@ extern uint32_t SystemCoreClock;
 
 #define configUSE_PREEMPTION			1
 #define configUSE_IDLE_HOOK				0
-#define configUSE_TICK_HOOK				1
+#define configUSE_TICK_HOOK				0
 #define configCPU_CLOCK_HZ				( SystemCoreClock )
 #define configTICK_RATE_HZ				( ( TickType_t ) 1000 )
 #define configMAX_PRIORITIES			( 5 )
 #define configMINIMAL_STACK_SIZE		( ( unsigned short ) 64 )
 #define configTOTAL_HEAP_SIZE			( ( size_t ) ( 4096 ) )
-#define configMAX_TASK_NAME_LEN			( 5 )
-#define configUSE_TRACE_FACILITY		1
+#define configMAX_TASK_NAME_LEN			( 8 )
+#define configUSE_TRACE_FACILITY		0
 #define configUSE_16_BIT_TICKS			0
 #define configIDLE_SHOULD_YIELD			1
 #define configUSE_MUTEXES				1
@@ -97,4 +97,3 @@ standard names - or at least those used in the unmodified vector table. */
 #define xPortSysTickHandler SysTick_Handler
 
 #endif /* FREERTOS_CONFIG_H */
-
