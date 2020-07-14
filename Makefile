@@ -4,7 +4,7 @@ AR := $(CROSS_COMPILE)ar
 OBJCOPY := $(CROSS_COMPILE)objcopy
 
 CFLAGS := -Wall -mthumb -mcpu=cortex-m0 --specs=nosys.specs -Ilib/inc -Isrc -IFreeRTOS/include -IFreeRTOS/portable -DUSE_STDPERIPH_DRIVER -DSTM32F030
-LDFLAGS := -nostartfiles -Tlib/stm32_flash.ld
+LDFLAGS := -nostartfiles -mcpu=cortex-m0 -Tlib/stm32_flash.ld
 
 all: stm32f0xx.bin stm32f0xx.hex
 
